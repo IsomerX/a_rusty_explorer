@@ -2,8 +2,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use serde::Serialize;
-use serde_json::Error;
-use std::io::Result;
 use sysinfo::{Disk, DiskExt, System, SystemExt};
 
 #[derive(Serialize)]
@@ -48,9 +46,27 @@ fn get_folders_in_dir(path: &str) -> String {
     return serialized.unwrap();
 }
 
+#[tauri::command]
+fn get_files_in_dir(path: &str) -> String {
+    let mut files: Vec<String> = Vec::new();
+    for entry in std::fs::read_dir(path).unwrap() {
+        let entry = entry.unwrap();
+        let path = entry.path();
+        if path.is_file() {
+            files.push(path.to_string_lossy().to_string());
+        }
+    }
+    let serialized = serde_json::to_string(&files);
+    return serialized.unwrap();
+}
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_volumes, get_folders_in_dir])
+        .invoke_handler(tauri::generate_handler![
+            get_volumes,
+            get_folders_in_dir,
+            get_files_in_dir
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

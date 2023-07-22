@@ -11,9 +11,7 @@ export default function Volumes({
 }) {
     const [volumes, setVolumes] = useState<Volume[]>();
     useEffect(() => {
-        invoke<string>("get_volumes", {
-            name: "World",
-        })
+        invoke<string>("get_volumes")
             .then((data) => setVolumes(JSON.parse(data)))
             .catch(console.error);
     }, []);
