@@ -17,7 +17,7 @@ export default function Volumes({
     }, []);
     if (!volumes) return <></>;
     return (
-        <>
+        <div className="flex gap-3">
             {volumes.map((volume) => {
                 return (
                     <button
@@ -29,6 +29,6 @@ export default function Volumes({
                     </button>
                 );
             })}
-        </>
+        </div>
     );
 }

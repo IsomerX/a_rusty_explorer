@@ -26,7 +26,7 @@ export default function Files({
         <div className="grid grid-cols-4 xl:grid-cols-6 gap-5 py-10">
             {files.map((file) => {
                 return (
-                    <>
+                    <div key={file}>
                         <Tooltip id={file} content={file.replace(PATH, "")} />
                         <div
                             key={file}
@@ -46,7 +46,7 @@ export default function Files({
                                 {file.replace(PATH, "")}
                             </p>
                         </div>
-                    </>
+                    </div>
                 );
             })}
         </div>
