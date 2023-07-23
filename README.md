@@ -16,11 +16,16 @@
 -   Currently able to surf directorys but only in the forward direction currently
 -   Added tooltip to files and folders
 
+## DAY 1 PROG:
+
+-   I managed to add the navigator to the app which I implemented using stacks
+-   Now we are able to move backward and forward in the directories
+
 ### TODOS
 
-[] Add support for forward and backward navigation
-[] Prepare the folders for search
-[] File ke andr search
-[] Caching
-[] Indexing
-[] Realtime
+[x] Add support for forward and backward navigation
+[.] Prepare the folders for search
+[.] File ke andr search
+[.] Caching
+[.] Indexing
+[.] Realtime
