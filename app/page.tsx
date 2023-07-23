@@ -6,7 +6,7 @@ import Files from "./Files";
 import "react-tooltip/dist/react-tooltip.css";
 
 export default function Home() {
-    const [currentFolderPath, setCurrentFolderPath] = useState<string>("");
+    const [currentFolderPath, setCurrentFolderPath] = useState<string>(".");
     return (
         <div className="bg-[#08090d] h-screen w-screen p-6 overflow-x-hidden">
             <div className="xl:max-w-4xl mx-auto">

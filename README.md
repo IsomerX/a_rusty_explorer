@@ -20,3 +20,7 @@
 
 [] Add support for forward and backward navigation
 [] Prepare the folders for search
+[] File ke andr search
+[] Caching
+[] Indexing
+[] Realtime
